@@ -7,7 +7,7 @@ pip install databricks_uc_apis
 ```
 
 ```python
-from dbrick import ...
+from dbrick import ....
 ```
 
 ## Developing/Contributing
