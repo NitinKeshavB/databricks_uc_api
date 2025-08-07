@@ -22,7 +22,7 @@ jobs:
   check-version-txt:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Tag with the release version
@@ -32,9 +32,9 @@ jobs:
   lint-format-and-static-code-checks:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python 3.12
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
       - name: Install pre-commit
@@ -47,9 +47,9 @@ jobs:
   build-wheel-and-sdist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python 3.12
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
       - name: Install build CLI
@@ -59,7 +59,7 @@ jobs:
         run: |
           /bin/bash -x run.sh build
       - name: Upload wheel and sdist
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: wheel-and-sdist
           path: ./dist/*
@@ -69,13 +69,13 @@ jobs:
       - build-wheel-and-sdist
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python 3.12
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
       - name: Download wheel and sdist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wheel-and-sdist
           path: ./dist/
@@ -96,13 +96,13 @@ jobs:
     # if - this is a merge to main or push directly to the main branch
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       - name: Set up Python 3.12
-        uses: actions/setup-python@v3
+        uses: actions/setup-python@v5
         with:
           python-version: 3.12
       - name: Download wheel and sdist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
           name: wheel-and-sdist
           path: ./dist/
