@@ -3,7 +3,7 @@
 ## Quick start
 
 ```bash
-pip install databricks_uc_apis 
+pip install databricks_uc_apis
 ```
 
 ```python
