@@ -4,8 +4,8 @@
 
 [project]
 name = "databricks_uc_apis"
-description = "My package description"
-authors = [{ name = "<your name>", email = "some-email@gmail.com" }]
+description = "This has all the APIs to interact with Databricks Unity Catalog."
+authors = [{ name = "Nitin keshav", email = "nitin.keshav11@gmail.com" }]
 readme = "README.md"
 requires-python = ">=3.7"
 license = { text = "MIT" }
